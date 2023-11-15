@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@kelvin/angular-app/common": ["libs/angular-app/common/src/index.ts"],
-      "@kelvin/angular-app/features": ["libs/angular-app/features/src/index.ts"],
+      "@kelvin/angular-app/features": [
+        "libs/angular-app/features/src/index.ts"
+      ],
       "@kelvin/angular-app/ui": ["libs/angular-app/ui/src/index.ts"],
       "@kelvin/backend/dto": ["libs/backend/dto/src/index.ts"],
       "@kelvin/backend/features": ["libs/backend/features/src/index.ts"],

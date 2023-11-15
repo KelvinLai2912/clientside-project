@@ -1,0 +1,4 @@
+<div *ngFor="let user of users">
+    <h2>{{ user.FirstName }} {{ user.LastName }}</h2>
+    <p>Birthdate: {{ user.birthDate | date: 'long' }}</p>
+</div>
