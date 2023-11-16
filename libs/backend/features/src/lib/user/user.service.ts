@@ -15,6 +15,40 @@ export class UserService {
             Email: 'johndoe@example.com',
             birthDate: new Date(),
         },
+
+        {
+            id: '1',
+            FirstName: 'Jane',
+            LastName: 'Doe',
+            Email: '',
+            birthDate: new Date(),
+        },
+
+        {
+            id: '2',
+            FirstName: 'John',
+            LastName: 'Smith',
+            Email: '',      
+            birthDate: new Date(),
+        },
+
+        {
+            id: '3',
+            FirstName: 'Jane',
+            LastName: 'Smith',
+            Email: '',
+            birthDate: new Date(),
+        },
+
+        {
+            id: '4',
+            FirstName: 'Kelvin',
+            LastName: 'Lai',
+            Email: '',
+            birthDate: new Date(),
+        },
+
+
     ]);
 
     getAll(): IUser[] {
