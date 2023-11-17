@@ -1,6 +1,6 @@
 {
     "navigationFallback": {
-      "rewrite": "/apps/clientside-indv/src/index.html",
+      "rewrite": "/index.html",
       "exclude": [
         "/images/*.{png,jpg,gif}",
         "/icons/*.{png,jpg,gif}",
