@@ -2,7 +2,9 @@
   "name": "@kelvin/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many --target=build --all"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
