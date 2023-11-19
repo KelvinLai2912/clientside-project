@@ -22,7 +22,8 @@
       "@kelvin/angular-app/ui": ["libs/angular-app/ui/src/index.ts"],
       "@kelvin/backend/dto": ["libs/backend/dto/src/index.ts"],
       "@kelvin/backend/features": ["libs/backend/features/src/index.ts"],
-      "@kelvin/shared/api": ["libs/shared/api/src/index.ts"]
+      "@kelvin/shared/api": ["libs/shared/api/src/index.ts"],
+      "@kelvin/shared/util-env": ["libs/shared/util-env/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
