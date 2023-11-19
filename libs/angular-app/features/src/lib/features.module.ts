@@ -6,12 +6,17 @@ import { UserService } from './user/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { Route, RouterLink } from '@angular/router';
-
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, RouterLink],
   providers: [UserService],
-  declarations: [UserListComponent, UserDetailComponent, AboutComponent],
+  declarations: [
+    UserListComponent,
+    UserDetailComponent,
+    AboutComponent,
+    HomeComponent,
+  ],
   exports: [UserListComponent, UserDetailComponent],
 })
 export class FeaturesModule {}

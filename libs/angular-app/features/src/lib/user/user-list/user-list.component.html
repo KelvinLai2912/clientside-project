@@ -1,38 +1,35 @@
-<div class="overflow-x-auto">
-    <table class="min-w-full leading-normal">
-      <thead>
+<div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+      <thead class="bg-gray-50">
         <tr>
-          <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-            ID
-          </th>
-          <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-            Name
-          </th>
-          <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-            Birthdate
-          </th>
-          <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100"></th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">ID</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Email</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Birthdate</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let user of users" class="hover:bg-gray-100">
-          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-            <span class="text-gray-900">{{ user.id }}</span>
+      <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+        <tr class="hover:bg-gray-50" *ngFor="let user of users">
+          <td class="px-6 py-4 font-medium text-gray-900">{{ user.id }}</td>
+          <td class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+            <div class="text-sm">
+              <div class="font-medium text-gray-700">{{ user.FirstName }} {{ user.LastName }}</div>
+            </div>
           </td>
-          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-            <div class="font-bold text-gray-900">{{ user.FirstName }} {{ user.LastName }}</div>
-          </td>
-          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-            <p class="text-gray-600">{{ user.birthDate | date: 'long' }}</p>
-          </td>
-          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right">
-            <a class="inline-block text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-700 mr-2"
-               [routerLink]="['/user', user.id]">
-              See Details
-            </a>
-            <button class="inline-block text-center px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-700">
-              Delete
-            </button>
+          <td class="px-6 py-4">{{ user.Email }}</td>
+          <td class="px-6 py-4">{{ user.birthDate | date: 'longDate' }}</td>
+          <td class="px-6 py-4">
+            <div class="flex justify-end gap-4">
+              <a class="inline-block text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-700 mr-2"
+              [routerLink]="['/user', user.id]">
+               See Details
+              </a>
+              <button class="inline-block text-center px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-700">
+                Delete
+                </button>
+          
+            </div>
           </td>
         </tr>
       </tbody>

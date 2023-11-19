@@ -3,10 +3,17 @@ import { AboutComponent,  } from 'libs/angular-app/features/src/lib/about/about.
 import { UserDetailComponent } from 'libs/angular-app/features/src/lib/user/user-detail/user-detail.component';
 import { UserListComponent } from 'libs/angular-app/features/src/lib/user/user-list/user-list.component';
 import { UserEditComponent } from 'libs/angular-app/features/src/lib/user/user-edit/user-edit.component';
+import { HomeComponent } from 'libs/angular-app/features/src/lib/home/home.component';
 
 
 export const appRoutes: Route[] = [
-    {
+      {
+        path: '',
+        pathMatch: 'full',
+        component: HomeComponent,
+      },
+
+      {
         path: 'user-list',
         pathMatch: 'full',
         component: UserListComponent,
