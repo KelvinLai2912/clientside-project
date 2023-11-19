@@ -27,14 +27,21 @@ export class CreateUserDto implements ICreateUser {
 
     @IsString()
     @IsNotEmpty()
+    Password!: string;
+
+    @IsString()
+    @IsNotEmpty()
     Email!: string;
 
     @IsDate()
     @IsNotEmpty()
     birthDate!: Date;
 
-
+    @IsString()
+    @IsNotEmpty()
+    Gender!: boolean;
 }
+
 
 export class UpsertUserDto implements IUpsertUser {
     @IsString()
@@ -51,11 +58,19 @@ export class UpsertUserDto implements IUpsertUser {
 
     @IsString()
     @IsNotEmpty()
+    Password!: string;
+
+    @IsString()
+    @IsNotEmpty()
     Email!: string;
 
     @IsDate()
     @IsNotEmpty()
     birthDate!: Date;
+
+    @IsString()
+    @IsNotEmpty()
+    Gender!: boolean;
 
 
 }

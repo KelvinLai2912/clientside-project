@@ -12,14 +12,19 @@ export class UserService {
             id: '0',
             FirstName: 'John',
             LastName: 'Doe',
+            Password: 'password',
+            Gender: true,
             Email: 'johndoe@example.com',
             birthDate: new Date(),
+
         },
 
         {
             id: '1',
             FirstName: 'Jane',
             LastName: 'Doe',
+            Password: 'password',
+            Gender: false,
             Email: '',
             birthDate: new Date(),
         },
@@ -28,6 +33,8 @@ export class UserService {
             id: '2',
             FirstName: 'John',
             LastName: 'Smith',
+            Password: 'password',
+            Gender: true,
             Email: '',      
             birthDate: new Date(),
         },
@@ -36,6 +43,8 @@ export class UserService {
             id: '3',
             FirstName: 'Jane',
             LastName: 'Smith',
+            Password: 'password',
+            Gender: true,
             Email: '',
             birthDate: new Date(),
         },
@@ -44,6 +53,8 @@ export class UserService {
             id: '4',
             FirstName: 'Kelvin',
             LastName: 'Lai',
+            Password: 'password',
+            Gender: true,
             Email: '',
             birthDate: new Date(),
         },
@@ -70,7 +81,7 @@ export class UserService {
      * return signature - we still want to respond with the complete
      * object
      */
-    create(user: Pick<IUser, 'FirstName' | 'LastName' | 'Email' | 'birthDate'>): IUser {
+    create(user: Pick<IUser, 'FirstName' | 'LastName' | 'Password'| 'Email' | 'birthDate' | 'Gender'>): IUser {
         Logger.log('create', this.TAG);
         const current = this.users$.value;
         // Use the incoming data, a randomized ID, and a default value of `false` to create the new to-do
@@ -80,5 +91,10 @@ export class UserService {
         };
         this.users$.next([...current, newUser]);
         return newUser;
+    }
+
+    getUserById(id: number): IUser {
+        console.log('getUserById aangeroepen');
+        return this.users$.value.filter((user) => user.id === String(id))[0];
     }
 }

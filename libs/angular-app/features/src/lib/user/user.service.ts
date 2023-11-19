@@ -15,6 +15,10 @@ export const httpOptions = {
 
 @Injectable()
 export class UserService {
+    public getUserById(userId: string): Observable<IUser> {
+        // Use the `read` method to fetch the user by ID
+        return this.read(userId);
+    }
     endpoint = environment.dataApiUrl + `/api/user`;
 
     constructor(private readonly http: HttpClient) {}
@@ -44,7 +48,7 @@ export class UserService {
     public read(id: string | null, options?: any): Observable<IUser> {
         console.log(`read ${this.endpoint}`);
         return this.http
-            .get<ApiResponse<IUser>>(this.endpoint, { // Added '/' + id to the URL
+            .get<ApiResponse<IUser>>(this.endpoint + '/' + id, { 
                 ...options,
                 ...httpOptions,
             })
