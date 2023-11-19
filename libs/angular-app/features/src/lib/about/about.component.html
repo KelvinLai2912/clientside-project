@@ -1,11 +1,132 @@
-<div class="container mx-auto p-6">
-    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h1 class="text-xl font-bold mb-2">About Us</h1>
-        <p class="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur orci. Nulla facilisi. Sed at semper magna. Nulla facilisi. Pellentesque et iaculis dolor. Nullam ac vulputate orci.
-        </p>
-        <p class="mt-4 text-gray-600 text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula magna vel velit fermentum, ac aliquam justo imperdiet.
-        </p>
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <!-- Left Column Start -->
+      <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
+        
+          <!-- About WayToSkate Section -->
+          <div class="w-full sm:p-4 px-4 mb-6">
+              <h1 class="title-font font-medium text-xl mb-2 text-gray-900">About WayToSkate</h1>
+              <div class="leading-relaxed">Deze Webapp is speciaal ontworpen voor skateboarders met WayToSkate kunnen gebruikers eenvoudig deelnemen aan wedstrijden, gehouden in een breed scala aan skateparken. De app biedt gedetailleerde informatie over elk evenement, inclusief locatie, datum, tijdstip, en specifieke wedstrijdregels. Skateparken zullen de mogelijkheid hebben om de wedstrijden toe te voegen aan hun park.</div>
+            </div>
+            
+            <!-- ERD Section -->
+            <div class="w-full sm:p-4 px-4 mb-6">
+              <h1 class="title-font font-medium text-xl mb-2 text-gray-900">ERD</h1>
+              <div class="leading-relaxed">
+                Deze ERD toont de relaties tussen gebruikers, evenementen en skateparken. Er zijn twee soorten gebruikers: 'Gebruiker' en 'Admin', beide met persoonlijke gegevens. 'Registratie' koppelt gebruikers aan evenementen die ze bijwonen, met een datum van registratie. 'Event' beschrijft evenementen met details zoals naam en tijd. 'Skatepark' bevat gegevens over locaties waar evenementen plaatsvinden en die de evenementen kunnen organiseren. Relaties tussen deze entiteiten geven aanmeldingen en organisatorische verbanden weer.</div>
+            </div>
+            
+            <!-- Functional Requirements Section -->
+      <div class="w-full sm:p-4 px-4 mb-6">
+        <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Functional requirements</h1>
+        <ul class="list-disc space-y-2 pl-5">
+          <li class="text-gray-700 text-sm font-semibold">Als gebruiker wil ik een systeem met drie entiteiten en een user-entiteit raadplegen, zodat ik de informatie vind die ik zoek.</li>
+          <li class="text-gray-700 text-sm font-semibold">Als gebruiker kan ik navigeren door het systeem, zodat ik alle informatie via de UI kan bereiken.</li>
+          <li class="text-gray-700 text-sm font-semibold">Als gebruiker kan ik overzichtsschermen van alle entiteiten raadplegen, zodat ik alle data in kan zien en door kan klikken naar detailinformatie.</li>
+          <li class="text-gray-700 text-sm font-semibold">Als gebruiker wil ik CRUD functionaliteit op alle entiteiten, zodat ik alle informatie kan raadplegen, en mijn eigen informatie kan wijzigen of verwijderen.</li>
+        </ul>
+      </div>
+      
+        <!-- Non-functional Requirements Section -->
+        <div class="w-full sm:p-4 px-4 mb-6">
+            <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Non-functional Requirements</h1>
+            <table class="min-w-full leading-normal">
+              <thead>
+                <tr>
+                  <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Requirement
+                  </th>
+                  <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Beschrijving
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                    <p class="text-gray-900 whitespace-no-wrap font-semibold">
+                      CI/CD pipeline
+                    </p>
+                  </td>
+                  <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                    <p class="text-gray-700 whitespace-no-wrap">
+                        Uitgebreid versiebeheer met feature branching toegepast.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap font-semibold">
+                        Security en authenticatie
+                      </p>
+                    </td>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-700 whitespace-no-wrap">
+                        Afhankelijk van de rol heeft een user toegang tot functionaliteit.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap font-semibold">
+                        Useability
+                      </p>
+                    </td>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-700 whitespace-no-wrap">
+                        Opvallend gebruiksvriendelijk systeem.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap font-semibold">
+                        Tests
+                      </p>
+                    </td>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-700 whitespace-no-wrap">
+                        Naast unittesten ook end-to-end tests voor 2 scenario's (anders dan authenticatie)
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap font-semibold">
+                        Documentatie
+                      </p>
+                    </td>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-700 whitespace-no-wrap">
+                        Requirements en/of userstories zijn helder en volledig gedocumenteerd.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap font-semibold">
+                        Data integrity (validatie van data in UI)
+                      </p>
+                    </td>
+                    <td class="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-700 whitespace-no-wrap">
+                        Uitgebreide validatie van alle inputvelden via Reactive Form Validation.
+                      </p>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+  
+      </div>
+      <!-- Left Column End -->
+  
+      <!-- Right Column Start -->
+      <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+        <img class="object-cover object-center w-full h-auto" src="assets/ERD-waytoskate.png" alt="ERD diagram">
+      </div>
+      
+      <!-- Right Column End -->
     </div>
-</div>
+  </section>
+  
