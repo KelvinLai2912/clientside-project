@@ -11,7 +11,7 @@
       </thead>
       <tbody class="divide-y divide-gray-100 border-t border-gray-100">
         <tr class="hover:bg-gray-50" *ngFor="let user of users">
-          <td class="px-6 py-4 font-medium text-gray-900">{{ user.id }}</td>
+          <td class="px-6 py-4 font-medium text-gray-900">{{ user._id }}</td>
           <td class="flex gap-3 px-6 py-4 font-normal text-gray-900">
             <div class="text-sm">
               <div class="font-medium text-gray-700">{{ user.FirstName }} {{ user.LastName }}</div>
@@ -22,7 +22,7 @@
           <td class="px-6 py-4">
             <div class="flex justify-end gap-4">
               <a class="inline-block text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-700 mr-2"
-              [routerLink]="['/user', user.id]">
+              [routerLink]="['/user', user._id]">
                See Details
               </a>
               <button class="inline-block text-center px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-700">

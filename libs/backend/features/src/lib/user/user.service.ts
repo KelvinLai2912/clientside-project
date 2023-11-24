@@ -1,100 +1,52 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { IUser } from '@kelvin/shared/api'; 
-import { BehaviorSubject } from 'rxjs';
-import { Logger } from '@nestjs/common';
+import { User } from './user.schema';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Gender } from '@kelvin/shared/api';
 
 @Injectable()
 export class UserService {
-    TAG = 'UserService';
-
-    private users$ = new BehaviorSubject<IUser[]>([
-        {
-            id: '0',
-            FirstName: 'John',
-            LastName: 'Doe',
-            Password: 'password',
-            Gender: true,
-            Email: 'johndoe@example.com',
-            birthDate: new Date(),
-
-        },
-
-        {
-            id: '1',
-            FirstName: 'Jane',
-            LastName: 'Doe',
-            Password: 'password',
-            Gender: false,
-            Email: '',
-            birthDate: new Date(),
-        },
-
-        {
-            id: '2',
-            FirstName: 'John',
-            LastName: 'Smith',
-            Password: 'password',
-            Gender: true,
-            Email: '',      
-            birthDate: new Date(),
-        },
-
-        {
-            id: '3',
-            FirstName: 'Jane',
-            LastName: 'Smith',
-            Password: 'password',
-            Gender: true,
-            Email: '',
-            birthDate: new Date(),
-        },
-
-        {
-            id: '4',
-            FirstName: 'Kelvin',
-            LastName: 'Lai',
-            Password: 'password',
-            Gender: true,
-            Email: '',
-            birthDate: new Date(),
-        },
-
-
-    ]);
-
-    getAll(): IUser[] {
-        Logger.log('getAll', this.TAG);
-        return this.users$.value;
+    constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {
+        this.seedDb();
+    
+    }
+    
+    async seedDb() {
+            let currentUsers = await this.findAll();
+            if (currentUsers.length > 0) {
+              return;
+            }
+            let seedUser1 = new User();
+            seedUser1.FirstName = 'Kelvin';
+            seedUser1.LastName = 'Lai';
+            seedUser1.Email = 'kkf.lai@student-avans.nl';
+            seedUser1.Password = 'secret';
+            seedUser1.birthDate = new Date('2000-01-01');
+            seedUser1.Gender = Gender.Male;
+            const newSeedUser1 = new this.userModel(seedUser1);
+            await newSeedUser1.save();
+        
+    }
+    
+    async findAll(): Promise<User[]> {
+        return await this.userModel.find().exec();
+    }
+    async findOne(_id: string): Promise<User | null> {
+        return await this.userModel.findOne({ _id: _id }).exec();
     }
 
-    getOne(id: string): IUser {
-        Logger.log(`getOne(${id})`, this.TAG);
-        const user = this.users$.value.find((user) => user.id === id);
-        if (!user) {
-            throw new NotFoundException(`User could not be found!`);
-        }
-        return user;
+    async create(user: User): Promise<User> {
+        const newUser = new this.userModel(user);
+        return await newUser.save();
     }
 
-    /**
-     * Update the arg signature to match the DTO, but keep the
-     * return signature - we still want to respond with the complete
-     * object
-     */
-    create(user: Pick<IUser, 'FirstName' | 'LastName' | 'Password'| 'Email' | 'birthDate' | 'Gender'>): IUser {
-        Logger.log('create', this.TAG);
-        const current = this.users$.value;
-        // Use the incoming data, a randomized ID, and a default value of `false` to create the new to-do
-        const newUser: IUser = {
-            ...user,
-            id: `user-${Math.floor(Math.random() * 10000)}`,
-        };
-        this.users$.next([...current, newUser]);
-        return newUser;
+    async update(id:string, user: User): Promise<User | null> {
+        //get user by id and update it
+        return await this.userModel.findByIdAndUpdate(id, user, { new: true });
     }
 
-    getUserById(id: number): IUser {
-        console.log('getUserById aangeroepen');
-        return this.users$.value.filter((user) => user.id === String(id))[0];
-    }
+    async delete(id: string): Promise<void> {
+        await this.userModel.findByIdAndRemove(id);
+        return;}
+    
 }

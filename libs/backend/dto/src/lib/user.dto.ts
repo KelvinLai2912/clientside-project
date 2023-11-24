@@ -6,6 +6,7 @@ import {
     IsDate
 } from 'class-validator';
 import {
+    Gender,
     ICreateUser,
     IUpdateUser,
     IUpsertUser,
@@ -39,14 +40,14 @@ export class CreateUserDto implements ICreateUser {
 
     @IsString()
     @IsNotEmpty()
-    Gender!: boolean;
+    Gender!: Gender;
 }
 
 
 export class UpsertUserDto implements IUpsertUser {
     @IsString()
     @IsNotEmpty()
-    id!: string;
+    _id!: string;
 
     @IsString()
     @IsNotEmpty()
@@ -70,7 +71,7 @@ export class UpsertUserDto implements IUpsertUser {
 
     @IsString()
     @IsNotEmpty()
-    Gender!: boolean;
+    Gender!: Gender;
 
 
 }
@@ -78,7 +79,7 @@ export class UpsertUserDto implements IUpsertUser {
 export class UpdateUserDto implements IUpdateUser {
     @IsString()
     @IsNotEmpty()
-    id!: string;
+    _id!: string;
 
     @IsString()
     @IsNotEmpty()

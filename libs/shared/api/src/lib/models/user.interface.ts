@@ -6,15 +6,20 @@ import { Id } from './id.type';
 type User = string;
 
 export interface IUser {
-    id: Id;
+    _id: Id;
     FirstName: string;
     LastName: string;
     Password: string;
     Email: string;
     birthDate: Date;
-    Gender: boolean;
+    Gender: Gender;
 
 }
+
+export enum Gender {
+    Male = 'Male',
+    Female = 'Female'
+  }
 
 export type ICreateUser = Pick<
     IUser,
