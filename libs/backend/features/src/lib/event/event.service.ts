@@ -35,8 +35,11 @@ export class EventService {
         return await this.eventModel.findOne({ _id }).exec();
     }
 
-    async create(event: IEvent): Promise<Event> {
-        // Create new event logic, no need to check for _id as it will be generated
+    async create(event: Partial<Event>): Promise<Event> {
+        // If _id is an empty string, remove it
+        if (event._id === '') {
+            delete event._id;
+        }
         const newEvent = new this.eventModel(event);
         return await newEvent.save();
     }

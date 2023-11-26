@@ -6,7 +6,7 @@ import { UserEditComponent } from 'libs/angular-app/features/src/lib/user/user-e
 import { HomeComponent } from 'libs/angular-app/features/src/lib/home/home.component';
 import { EventDetailComponent } from 'libs/angular-app/features/src/lib/event/event-detail/event-detail.component';
 import { EventListComponent } from 'libs/angular-app/features/src/lib/event/event-list/event-list.component';
-
+import { EventEditComponent } from 'libs/angular-app/features/src/lib/event/event-edit/event-edit.component';
 
 export const appRoutes: Route[] = [
       {
@@ -52,8 +52,20 @@ export const appRoutes: Route[] = [
       },
 
       {
+        path: 'event/add',
+        pathMatch: 'full',
+        component: EventEditComponent
+      },
+
+      {
         path: 'event/:id',
         pathMatch: 'full',
         component: EventDetailComponent,
+      },
+
+      {
+        path: 'event/edit/:id',
+        pathMatch: 'full',
+        component: EventEditComponent
       },
 ];

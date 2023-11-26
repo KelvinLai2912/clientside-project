@@ -15,6 +15,7 @@ import { UserService } from './user/user.service';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventService } from './event/event.service';
+import { EventEditComponent } from './event/event-edit/event-edit.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, FormsModule, RouterLink],
@@ -27,6 +28,7 @@ import { EventService } from './event/event.service';
     HomeComponent,
     EventDetailComponent,
     EventListComponent,
+    EventEditComponent
   ],
   exports: [UserListComponent, UserDetailComponent],
 })

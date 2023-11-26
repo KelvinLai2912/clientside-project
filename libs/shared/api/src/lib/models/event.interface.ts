@@ -11,10 +11,10 @@ export interface IEvent {
 }
 
 export enum Catagory {
-    Street = "Street Skateboarding",
-    Vert = "Vert Skateboarding",
-    Freestyle = "Freestyle Skateboarding",
-    Park = "Skatepark Skateboarding"
+    Street = "Street",
+    Vert = "Vert",
+    Freestyle = "Freestyle",
+    Park = "Park"
   }
 
 
