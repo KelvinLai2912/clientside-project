@@ -1,0 +1,43 @@
+<div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="flex justify-between items-center bg-gray-50 px-6 py-4">
+      <h1 class="text-lg font-medium text-gray-900">Events</h1>
+      <a class="inline-block text-center px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-700"
+         routerLink="/event/add">
+        Add Event
+      </a>
+    </div>
+    <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+      <thead class="bg-gray-50">
+        <tr>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">ID</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Event Name</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Date</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Time</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Category</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+        <tr class="hover:bg-gray-50" *ngFor="let event of events">
+          <td class="px-6 py-4 font-medium text-gray-900">{{ event._id }}</td>
+          <td class="px-6 py-4 font-medium text-gray-700">{{ event.eventName }}</td>
+          <td class="px-6 py-4">{{ event.eventDate | date: 'longDate' }}</td>
+          <td class="px-6 py-4">{{ event.time }}</td>
+          <td class="px-6 py-4">{{ event.catagory }}</td>
+          <td class="px-6 py-4">
+            <div class="flex justify-end gap-4">
+              <a class="inline-block text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-700 mr-2"
+              [routerLink]="['/event', event._id]">
+               See Details
+              </a>
+              <button class="inline-block text-center px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-700"
+              (click)="deleteEvent(event._id)">
+               Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

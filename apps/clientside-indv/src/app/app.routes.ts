@@ -4,6 +4,8 @@ import { UserDetailComponent } from 'libs/angular-app/features/src/lib/user/user
 import { UserListComponent } from 'libs/angular-app/features/src/lib/user/user-list/user-list.component';
 import { UserEditComponent } from 'libs/angular-app/features/src/lib/user/user-edit/user-edit.component';
 import { HomeComponent } from 'libs/angular-app/features/src/lib/home/home.component';
+import { EventDetailComponent } from 'libs/angular-app/features/src/lib/event/event-detail/event-detail.component';
+import { EventListComponent } from 'libs/angular-app/features/src/lib/event/event-list/event-list.component';
 
 
 export const appRoutes: Route[] = [
@@ -41,5 +43,17 @@ export const appRoutes: Route[] = [
         path: 'user/:id',
         pathMatch: 'full',
         component: UserDetailComponent,
+      },
+
+      {
+        path: 'event-list',
+        pathMatch: 'full',
+        component: EventListComponent,
+      },
+
+      {
+        path: 'event/:id',
+        pathMatch: 'full',
+        component: EventDetailComponent,
       },
 ];

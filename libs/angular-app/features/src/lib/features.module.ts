@@ -1,24 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { Route, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserService } from './user/user.service';
-import { HttpClientModule } from '@angular/common/http';
-import { AboutComponent } from './about/about.component';
-import { Route, RouterLink } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventListComponent } from './event/event-list/event-list.component';
+import { EventService } from './event/event.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, FormsModule, RouterLink],
-  providers: [UserService],
+  providers: [UserService, EventService],
   declarations: [
     UserListComponent,
     UserDetailComponent,
     UserEditComponent,
     AboutComponent,
     HomeComponent,
+    EventDetailComponent,
+    EventListComponent,
   ],
   exports: [UserListComponent, UserDetailComponent],
 })
