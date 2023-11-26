@@ -43,6 +43,27 @@ export class UserService {
     }
 
 
+       /**
+     * Create a new user.
+     *
+     * @param user - The user data to create.
+     */
+    public createUser(user: IUser): Observable<IUser> {
+        console.log(`createUser at ${this.endpoint}`);
+
+        return this.http
+            .post<ApiResponse<IUser>>(this.endpoint, user, {
+                ...httpOptions,
+                observe: 'body',
+                responseType: 'json' as const,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response.results as IUser),
+                catchError(this.handleError)
+            );
+    }
+
 
     /**
      * Get a single item from the service.
@@ -54,6 +75,27 @@ export class UserService {
             .get<ApiResponse<IUser>>(this.endpoint + '/' + id, { 
                 ...options,
                 ...httpOptions,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response.results as IUser),
+                catchError(this.handleError)
+            );
+    }
+
+    /**
+     * Update an item.
+     *
+     * @param user - The user data to update.
+     */
+    public updateUser(user: IUser): Observable<IUser> {
+        console.log(`updateUser at ${this.endpoint}`);
+
+        return this.http
+            .put<ApiResponse<IUser>>(`${this.endpoint}/${user._id}`, user, {
+                ...httpOptions,
+                observe: 'body',
+                responseType: 'json',
             })
             .pipe(
                 tap(console.log),

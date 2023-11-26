@@ -35,7 +35,12 @@ export class UserService {
         return await this.userModel.findOne({ _id: _id }).exec();
     }
 
-    async create(user: User): Promise<User> {
+    async create(user: Partial<User>): Promise<User> {
+        // If user data comes with an empty string _id, delete it to avoid cast errors
+        if (user._id === '') {
+            delete user._id;
+        }
+
         const newUser = new this.userModel(user);
         return await newUser.save();
     }

@@ -1,32 +1,55 @@
 <body class="bg-gray-100">
     <div class="container mx-auto my-10 p-8 bg-white shadow-lg max-w-lg">
-        <form action="/submit-user-data" method="post">
+        <form (ngSubmit)="submitForm()">
             <div class="flex justify-between items-center mb-5">
-                <h2 class="text-2xl font-bold">{{ user?.FirstName ?? 'New User' }}'s Profile</h2>
-                <button type="submit" class="font-medium text-blue-600 hover:underline">Save</button>
+                <h2 class="text-2xl font-bold">{{ user._id ? (user.FirstName + "'s Profile") : 'New User' }}</h2>
+                <button type="submit" class="font-medium text-blue-600 hover:underline">{{ user._id ? 'Update' : 'Create' }}</button>
             </div>
 
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">ID</label>
-                    <input type="text" name="id" value="{{ user?._id }}" class="p-3 bg-gray-200 rounded w-full" readonly>
-                </div>
+            <!-- Display ID only when editing an existing user -->
+            <div *ngIf="user._id" class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">ID</label>
+                <input type="text" name="id" [value]="user._id" class="p-3 bg-gray-200 rounded w-full" readonly>
+            </div>
+
+            <!-- First Name -->
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2">First Name</label>
-                <input type="text" name="firstName" value="{{ user?.FirstName }}" class="p-3 bg-gray-200 rounded w-full">
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
-                <input type="text" name="lastName" value="{{ user?.LastName }}" class="p-3 bg-gray-200 rounded w-full">
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                <input type="email" name="email" value="{{ user?.Email }}" class="p-3 bg-gray-200 rounded w-full">
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                <input type="password" name="password" class="p-3 bg-gray-200 rounded w-full">
+                <input type="text" name="firstName" [(ngModel)]="user.FirstName" class="p-3 bg-gray-200 rounded w-full" required>
             </div>
 
+            <!-- Last Name -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+                <input type="text" name="lastName" [(ngModel)]="user.LastName" class="p-3 bg-gray-200 rounded w-full" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                <input type="email" name="email" [(ngModel)]="user.Email" class="p-3 bg-gray-200 rounded w-full" required>
+            </div>
+
+            <!-- Password (leave blank when editing) -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                <input type="password" name="password" [(ngModel)]="user.Password" class="p-3 bg-gray-200 rounded w-full" required>
+            </div>
+
+            <!-- Birth Date -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Birth Date</label>
+                <input type="date" name="birthDate" [(ngModel)]="user.birthDate" class="p-3 bg-gray-200 rounded w-full">
+            </div>
+
+            <!-- Gender -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+                <select name="gender" [(ngModel)]="user.Gender" class="p-3 bg-gray-200 rounded w-full">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
         </form>
     </div>
 </body>
