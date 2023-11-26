@@ -1,0 +1,15 @@
+
+<select [(ngModel)]="selectedEventId">
+    <option *ngFor="let event of events" [value]="event._id">{{ event.eventName }}</option>
+  </select>
+  <button (click)="addUserEvent(selectedEventId)">Add Event to User</button>
+
+
+
+  
+<select [(ngModel)]="selectedEventId">
+    <option *ngFor="let event of events" [value]="event._id">{{ event.eventName }}</option>
+  </select>
+  <button (click)="deleteUserEvent(selectedEventId)">Remove Event from User</button>
+  
+  

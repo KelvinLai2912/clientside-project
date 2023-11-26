@@ -33,4 +33,16 @@ export class UserController {
     async delete(@Param('id') id: string): Promise<void> {
         return this.userService.delete(id);
     }
+
+
+    @Post(':userId/event/:eventId')
+    async addEvent(@Param('userId') userId: string, @Param('eventId') eventId: string): Promise<IUser> {
+        return this.userService.addEventToUser(userId, eventId);
+    }
+
+    @Delete(':userId/event/:eventId')
+    async removeEvent(@Param('userId') userId: string, @Param('eventId') eventId: string): Promise<IUser> {
+        return this.userService.removeEventFromUser(userId, eventId);
+    }
+
 }

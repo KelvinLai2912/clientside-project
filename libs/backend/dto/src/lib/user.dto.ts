@@ -3,7 +3,8 @@ import {
     IsString,
     IsBoolean,
     IsOptional,
-    IsDate
+    IsDate,
+    IsArray
 } from 'class-validator';
 import {
     Gender,
@@ -12,6 +13,8 @@ import {
     IUpsertUser,
     
 } from '@kelvin/shared/api';
+
+import { Types } from 'mongoose';
 
 /**
  * Use the `Pick` utility type to extract only the properties we want for
@@ -73,7 +76,10 @@ export class UpsertUserDto implements IUpsertUser {
     @IsNotEmpty()
     Gender!: Gender;
 
-
+    @IsArray()
+    @IsOptional() 
+    @IsString({ each: true }) 
+    events!: Types.ObjectId[];
 }
 
 export class UpdateUserDto implements IUpdateUser {

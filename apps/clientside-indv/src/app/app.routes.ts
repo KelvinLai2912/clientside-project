@@ -7,6 +7,7 @@ import { HomeComponent } from 'libs/angular-app/features/src/lib/home/home.compo
 import { EventDetailComponent } from 'libs/angular-app/features/src/lib/event/event-detail/event-detail.component';
 import { EventListComponent } from 'libs/angular-app/features/src/lib/event/event-list/event-list.component';
 import { EventEditComponent } from 'libs/angular-app/features/src/lib/event/event-edit/event-edit.component';
+import { AddEventToUserComponent } from 'libs/angular-app/features/src/lib/user/add-event-to-user/add-event-to-user.component';
 
 export const appRoutes: Route[] = [
       {
@@ -43,6 +44,11 @@ export const appRoutes: Route[] = [
         path: 'user/:id',
         pathMatch: 'full',
         component: UserDetailComponent,
+      },
+
+      {
+      path: 'user/:userId/add-event',
+      component: AddEventToUserComponent
       },
 
       {

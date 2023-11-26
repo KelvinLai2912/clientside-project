@@ -37,8 +37,11 @@
               (click)="deleteUser(user._id)">
                Delete
               </button>
-      
-          
+
+              <button class="inline-block text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-700"
+              [routerLink]="['/user', user._id, 'add-event']">
+                Add Event
+              </button>          
             </div>
           </td>
         </tr>

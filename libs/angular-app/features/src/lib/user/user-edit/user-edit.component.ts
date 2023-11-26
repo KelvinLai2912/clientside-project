@@ -18,6 +18,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
     Email: '',
     birthDate: new Date(),
     Gender: Gender.Male,
+    events: [],
   };
   subscription: Subscription | undefined;
 

@@ -15,6 +15,7 @@ export const httpOptions = {
 
 @Injectable()
 export class UserService {
+
     public getUserById(userId: string): Observable<IUser> {
         // Use the `read` method to fetch the user by ID
         return this.read(userId);
@@ -114,7 +115,15 @@ export class UserService {
                 catchError(this.handleError)
             );
     }
-    
+
+    addEventToUser(userId: string, eventId: string): Observable<IUser> {
+        return this.http.post<IUser>(`${this.endpoint}/${userId}/event/${eventId}`, {});
+    }
+
+    removeEventFromUser(userId: string, eventId: string): Observable<IUser> {
+        return this.http.delete<IUser>(`${this.endpoint}/${userId}/event/${eventId}`);
+    }
+
 
     /**
      * Handle errors.

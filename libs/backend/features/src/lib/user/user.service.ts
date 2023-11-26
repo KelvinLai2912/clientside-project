@@ -53,4 +53,33 @@ export class UserService {
     async delete(id: string): Promise<void> {
         await this.userModel.findByIdAndDelete({ _id: id });
         return;}
+
+    async addEventToUser(userId: string, eventId: string): Promise<User> {
+        const updatedUser = await this.userModel.findByIdAndUpdate(
+            userId,
+            { $addToSet: { events: eventId } },
+            { new: true }
+        ).exec();
+
+        if (!updatedUser) {
+            throw new Error(`User with ID ${userId} not found`);
+        }
+
+        return updatedUser;
+    }
+
+    async removeEventFromUser(userId: string, eventId: string): Promise<User> {
+        const updatedUser = await this.userModel.findByIdAndUpdate(
+            userId,
+            { $pull: { events: eventId } },
+            { new: true }
+        ).exec();
+        
+        if (!updatedUser) {
+            throw new Error(`User with ID ${userId} not found`);
+        }
+
+        return updatedUser;
+    }
+        
 }

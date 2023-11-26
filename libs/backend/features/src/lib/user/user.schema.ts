@@ -1,6 +1,7 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 import { IsMongoId } from 'class-validator';
 import { Gender } from '@kelvin/shared/api';
+import { Types } from 'mongoose';
 
 @Schema()
 export class User {
@@ -24,6 +25,9 @@ export class User {
 
   @Prop({ required: true, type: String, enum: Object.values(Gender) })
   Gender!: Gender;
+
+  @Prop([{ type: Types.ObjectId, ref: 'Event' }])
+  events!: Types.ObjectId[];
 }
 
 

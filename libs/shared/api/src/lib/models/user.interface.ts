@@ -1,4 +1,5 @@
 import { Id } from './id.type';
+import { Types } from 'mongoose';
 
 export interface IUser {
     _id: Id;
@@ -8,6 +9,7 @@ export interface IUser {
     Email: string;
     birthDate: Date;
     Gender: Gender;
+    events: Types.ObjectId[];
 
 }
 

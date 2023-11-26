@@ -16,6 +16,7 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventService } from './event/event.service';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
+import { AddEventToUserComponent } from './user/add-event-to-user/add-event-to-user.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, FormsModule, RouterLink],
@@ -28,7 +29,10 @@ import { EventEditComponent } from './event/event-edit/event-edit.component';
     HomeComponent,
     EventDetailComponent,
     EventListComponent,
-    EventEditComponent
+    EventEditComponent,
+    AddEventToUserComponent,
+    AddEventToUserComponent,
+    AddEventToUserComponent,
   ],
   exports: [UserListComponent, UserDetailComponent],
 })
