@@ -41,6 +41,9 @@ export class UserService {
                 catchError(this.handleError)
             );
     }
+
+
+
     /**
      * Get a single item from the service.
      *
@@ -58,6 +61,18 @@ export class UserService {
                 catchError(this.handleError)
             );
     }
+
+    public delete(userId: string): Observable<any> {
+        console.log(`delete ${this.endpoint}/${userId}`);
+    
+        return this.http
+            .delete<ApiResponse<any>>(`${this.endpoint}/${userId}`)
+            .pipe(
+                tap(console.log),
+                catchError(this.handleError)
+            );
+    }
+    
 
     /**
      * Handle errors.
